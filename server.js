@@ -16,6 +16,8 @@ const port = process.env.PORT ? process.env.PORT : '3000';
 const authRouter = require('./controllers/authController');
 const userRouter = require('./controllers/users');
 
+const workoutRouter = require('./controllers/workouts');
+const exerciseRouter = require('./controllers/exercises');
 //--------------------------------------------------- 
 
 
@@ -42,15 +44,15 @@ app.get('/', (req, res) => {
 
 
 
-
 // PUBLIC ROUTES
 app.use("/auth", authRouter);
 
 // PROTECTED ROUTES
 app.use("/users", userRouter);
 
-
-
+app.use("/workouts", workoutRouter);
+app.use("/exercises", exerciseRouter);
+// app.use("/profile", userRouter);
 // ------------------------------------------------
 
 
